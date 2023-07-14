@@ -1,0 +1,1 @@
+gcloud alpha functions deploy postFilmFunction  --entry-point org.springframework.cloud.function.adapter.gcp.GcfJarLauncher --runtime java17 --source target/deploy --memory 512MB --region europe-central2 --trigger-event --trigger-resource=projects/project_id/databases/(default)/documents/messages/{pushId} --allow-unauthenticated --vpc-connector video-stream-functions

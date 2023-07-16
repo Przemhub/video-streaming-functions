@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 
 public class PostFilm implements HttpFunction {
@@ -52,7 +51,7 @@ public class PostFilm implements HttpFunction {
 
             Blob videoBlob = bucket.create(videoFilePart.getFileName().get(), videoFilePart.getInputStream());
             BlobInfo updatedBlobInfo = BlobInfo.newBuilder(videoBlob.getBlobId())
-                    .setMetadata(Map.of("description", videoDescription))
+                    .setMetadata(Map.of("description",videoDescription))
                     .build();
             storage.update(updatedBlobInfo);
             response.setStatusCode(HttpURLConnection.HTTP_CREATED);

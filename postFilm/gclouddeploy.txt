@@ -1,0 +1,1 @@
+gcloud alpha functions deploy postFilmFunction  --entry-point com.example.videostreamfunction.PostFilm --runtime java17 --memory 512MB --region europe-central2 --trigger-http --allow-unauthenticated

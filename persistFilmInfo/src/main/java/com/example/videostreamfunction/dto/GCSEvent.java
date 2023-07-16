@@ -12,5 +12,7 @@ import java.util.Map;
 @NoArgsConstructor
 public class GCSEvent {
     private String name;
+    private String bucket;
+    private String id;
     private Map<String,String> metadata;
 }

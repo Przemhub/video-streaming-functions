@@ -1,10 +1,7 @@
 package com.example.videostreamfunction.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 //import org.springframework.data.relational.core.mapping.Table;
@@ -23,5 +20,6 @@ public class Video {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String videoName;
+    @Column( length = 100000 )
     private String description;
 }

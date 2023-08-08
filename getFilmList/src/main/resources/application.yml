@@ -19,7 +19,6 @@ spring:
       sql:
         instance-connection-name: video-stream-instance:europe-central2:video-streaming-functions-db
         database-name: video-streaming-functions-db
-      config:
-        credentials:
-          location: video-streaming-faas.json
+      credentials:
+        location: video-streaming-faas.json
 

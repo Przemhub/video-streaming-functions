@@ -1,1 +1,11 @@
-gcloud alpha functions deploy postFilmFunction  --entry-point com.example.videostreamfunction.PostFilm --runtime java17 --memory 512MB --region europe-central2 --trigger-http --allow-unauthenticated
+
+gcloud alpha functions deploy postFilmFunction
+--entry-point com.example.videostreamfunction.PostFilm
+--runtime java17
+--memory 512MB
+--region europe-central2
+--trigger-http
+--allow-unauthenticated
+--vpc-connector video-stream-functions
+--service-account video-stream-functions@video-streaming-390616.iam.gserviceaccount.com
+

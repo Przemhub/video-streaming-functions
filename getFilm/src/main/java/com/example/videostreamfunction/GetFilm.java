@@ -19,6 +19,7 @@ public class GetFilm implements HttpFunction {
     private static final Logger logger = LoggerFactory.getLogger(GetFilm.class);
     private static final String GCLOUD_BUCKET = "video-streaming-functions-bucket";
     private final Storage storage;
+    private final String MP4_SUFFIX = ".mp4";
 
 
     public GetFilm() {
@@ -44,7 +45,7 @@ public class GetFilm implements HttpFunction {
             storage.create(BucketInfo.of(GCLOUD_BUCKET));
         }
 
-        String videoName = queryParams.get("videoName").get(0);
+        String videoName = queryParams.get("videoName").get(0)+ MP4_SUFFIX;
         logger.error(videoName);
         Blob videoBlob = bucket.get(videoName);
         response.setContentType("video/mp4");
@@ -60,8 +61,10 @@ public class GetFilm implements HttpFunction {
             byte[] buffer = new byte[10000];
             int bytesRead;
             while ((bytesRead = inputStream.read(buffer)) != -1) {
+                System.out.println("sending 10k bytes");
                 outputStream.write(buffer, 0, bytesRead);
             }
+            System.out.println();
         }
     }
 
